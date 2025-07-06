@@ -12,7 +12,7 @@ import os
 
 engine = pyttsx3.init()
 recognizer = sr.Recognizer()
-newsapi = "a0bc6cd0d3554632b91cb8fd620145e6"
+newsapi = "<your news API>"
 
 def speak_old(text):
     engine.say(text)
@@ -55,7 +55,7 @@ def processCommand(c):
         link = musicLibrary.music[song]
         webbrowser.open(link)
     elif "news" in c or "headlines" in c or "tell me news" in c: 
-        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=a0bc6cd0d3554632b91cb8fd620145e6")
+        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=<your API Key>")
         if r.status_code == 200:
             data = r.json()
             articles = data.get('articles', [])
